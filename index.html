@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Splitter Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Expense Splitter Tool</h1>
+    <form id="expenseForm">
+      <label for="totalExpense">Total Expense:</label>
+      <input type="number" id="totalExpense" placeholder="Enter total expense" required>
+      
+      <label for="numPeople">Number of People:</label>
+      <input type="number" id="numPeople" placeholder="Enter number of people" required>
+      
+      <button type="button" id="addPeople">Add People</button>
+      <div id="peopleInput"></div>
+      
+      <button type="submit">Calculate</button>
+    </form>
+    
+    <div id="results" class="hidden">
+      <h2>Results</h2>
+      <ul id="resultsList"></ul>
+      <button id="downloadSummary">Download Summary</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
