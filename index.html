@@ -18,6 +18,20 @@
       
       <button type="button" id="addPeople">Add People</button>
       <div id="peopleInput"></div>
+
+      <div id="expenseCategories">
+        <h3>Expense Categories</h3>
+        <button type="button" id="addCategory">Add Category</button>
+        <div id="categoryInputs"></div>
+      </div>
+
+      <div>
+        <label for="splitType">Split Type:</label>
+        <select id="splitType">
+          <option value="equal">Equal</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
       
       <button type="submit">Calculate</button>
     </form>
@@ -27,7 +41,13 @@
       <ul id="resultsList"></ul>
       <button id="downloadSummary">Download Summary</button>
     </div>
+    <div id="chart"></div>
+    <div>
+      <button id="saveExpense">Save Expense</button>
+      <button id="loadExpense">Load Expense</button>
+    </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
