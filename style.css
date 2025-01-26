@@ -87,16 +87,6 @@ li {
   text-align: center;
 }
 
-#expenseCategories {
-  margin-top: 20px;
-}
-
-#categoryInputs > div {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
 #chart {
   max-width: 400px;
   margin: 20px auto;
