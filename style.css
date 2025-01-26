@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f7f9fc;
+  background-color: #f7f9fc; 
   margin: 0;
   padding: 0;
   color: #333;
@@ -9,22 +9,22 @@ body {
 .container {
   max-width: 600px;
   margin: 50px auto;
-  background: #ffffff;
+  background: #ffffff; 
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 h1 {
   text-align: center;
-  color: #4caf50;
+  color: #4CAF50; 
 }
 
 label {
   display: block;
   margin: 15px 0 5px;
   font-weight: bold;
-  color: #555;
+  color: #555; 
 }
 
 input {
@@ -41,7 +41,7 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   color: #ffffff;
-  background-color: #007bff;
+  background-color: #007BFF; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -50,7 +50,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; 
 }
 
 ul {
@@ -64,7 +64,7 @@ li {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ddd;
-  color: #333;
+  color: #333; 
 }
 .person-input {
   margin-bottom: 10px;
@@ -76,42 +76,4 @@ li {
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 14px;
-}
-
-.error {
-  background-color: #ffebee;
-  color: #c62828;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  text-align: center;
-}
-
-#chart {
-  max-width: 400px;
-  margin: 20px auto;
-}
-
-@media (max-width: 600px) {
-  .container {
-    margin: 20px;
-    padding: 15px;
-  }
-
-  input,
-  button {
-    font-size: 14px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  .person-input {
-    flex-direction: column;
-  }
-
-  .personDetails {
-    width: 100%;
-  }
 }
