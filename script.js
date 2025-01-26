@@ -4,7 +4,6 @@ const peopleInputContainer = document.getElementById("peopleInput")
 const resultsDiv = document.getElementById("results")
 const resultsList = document.getElementById("resultsList")
 const downloadSummaryBtn = document.getElementById("downloadSummary")
-const splitTypeSelect = document.getElementById("splitType")
 
 addPeopleBtn.addEventListener("click", () => {
   const numPeople = document.getElementById("numPeople").value
@@ -16,21 +15,9 @@ addPeopleBtn.addEventListener("click", () => {
     personDiv.innerHTML = `
       <label for="person${i}">Person ${i} Name:</label>
       <input type="text" id="person${i}Name" class="personDetails" placeholder="Enter name" required>
-      <label for="person${i}Contribution">Person ${i} Contribution:</label>
-      <input type="number" id="person${i}Contribution" class="personDetails" placeholder="Enter contribution" required>
     `
     peopleInputContainer.appendChild(personDiv)
   }
-})
-
-splitTypeSelect.addEventListener("change", () => {
-  const isCustom = splitTypeSelect.value === "custom"
-  document.querySelectorAll("[id^=person][id$=Contribution]").forEach((input) => {
-    input.disabled = !isCustom
-    if (!isCustom) {
-      input.value = ""
-    }
-  })
 })
 
 expenseForm.addEventListener("submit", (e) => {
@@ -38,36 +25,25 @@ expenseForm.addEventListener("submit", (e) => {
 
   const totalExpense = Number.parseFloat(document.getElementById("totalExpense").value)
   const numPeople = Number.parseInt(document.getElementById("numPeople").value)
-  const splitType = splitTypeSelect.value
 
-  let totalContribution = 0
+  if (isNaN(totalExpense) || isNaN(numPeople) || numPeople <= 0) {
+    alert("Please enter valid numbers for total expense and number of people.")
+    return
+  }
+
+  const equalShare = totalExpense / numPeople
   const people = []
 
   for (let i = 1; i <= numPeople; i++) {
-    const name = document.getElementById(`person${i}Name`).value
-    let contribution
-
-    if (splitType === "equal") {
-      contribution = totalExpense / numPeople
-    } else {
-      contribution = Number.parseFloat(document.getElementById(`person${i}Contribution`).value) || 0
-    }
-
-    totalContribution += contribution
-    people.push({ name, contribution })
-  }
-
-  if (splitType === "custom" && Math.abs(totalContribution - totalExpense) > 0.01) {
-    alert("The sum of individual contributions must equal the total expense.")
-    return
+    const name = document.getElementById(`person${i}Name`).value || `Person ${i}`
+    people.push({ name, share: equalShare })
   }
 
   resultsList.innerHTML = ""
 
   people.forEach((person) => {
-    const balance = person.contribution - totalExpense / numPeople
     const resultItem = document.createElement("li")
-    resultItem.textContent = `${person.name}: Paid ${person.contribution.toFixed(2)} | Balance: ${balance >= 0 ? `Overpaid ${balance.toFixed(2)}` : `Owes ${(Math.abs(balance)).toFixed(2)}`}`
+    resultItem.textContent = `${person.name}: Owes ${person.share.toFixed(2)}`
     resultsList.appendChild(resultItem)
   })
 
